@@ -1,0 +1,95 @@
+﻿
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redskins Table Data</title>
+  <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" />
+  
+  <link href="css/footable-0.1.css" rel="stylesheet" type="text/css" />
+  <link href="css/footable.sortable-0.1.css" rel="stylesheet" type="text/css" />
+  
+  <style>
+  	.highlight {
+  		background: yellow;
+  	}
+  	.logo {
+  		padding: 0;
+  	}
+  	a {
+  		text-decoration: none;
+  		color: #19559F;
+  	}
+  	a:hover {
+  		text-decoration: underline;
+  	}
+  </style>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+  <script src="js/footable-0.1.js" type="text/javascript"></script>
+  <script src="js/footable.sortable.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('table').footable();
+    });
+  </script>
+</head>
+  <body>
+    <table class="footable">
+      <thead>
+        <tr>
+          <th data-class="default" data-sort-initial="true">
+            <span title="table sorted by this column on load">State</span>
+          </th>
+          <th data-class="default">
+            <span title="sorting disabled on this column">City</span>
+          </th>
+          <th data-hide="phone, tablet" data-type="alpha">
+            New Logo
+          </th>
+          <th data-class="default">
+            School
+          </th>
+          <th data-hide="phone, tablet" data-type="numeric">
+            New Mascot
+          </th>
+          <th data-hide="phone, tablet" data-type="numeric">
+            Year Changed
+          </th>
+        </tr>
+      </thead>
+		<tbody>
+		
+ <tr><td>Maine</td><td>Wiscasset</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/wiscasset.gif" height="50" width="50"/></td><td><a href="http://whs.wiscasset.k12.me.us/" target="_blank">Wiscasset</a></td><td>Wolverines</td><td>2011</td></tr>
+ <tr><td>Maine</td><td>Sanford</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/sanford.gif" height="50" width="50"/></td><td><a href="http://www.sanford.org/index.asp?Type=B_BASIC&SEC={06A91124-1E6F-4772-9ABB-969B8459589B}" target="_blank">Sanford</a></td><td>Spartans</td><td>2012</td></tr>
+ <tr><td>North Dakota</td><td>Grand Forks Central</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/grandforks.gif" height="50" width="50"/></td><td><a href="http://www.edline.net/pages/gfc" target="_blank">Grand Forks</a></td><td>Knights</td><td>1992</td></tr>
+ <tr><td>Kansas</td><td>Hiawatha</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/hiawatha.gif" height="50" width="50"/></td><td><a href="http://www.hiawathaschools.org/vnews/display.v/SEC/High%20School" target="_blank">Hiawatha</a></td><td>Red Hawks</td><td>2001</td></tr>
+ <tr><td>New Jersey</td><td>Parsippany</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/parsippany.gif" height="50" width="50"/></td><td><a href="http://www.pthsd.k12.nj.us/sch/phs/phs.title.html" target="_blank">Parsippany</a></td><td>Red Hawks</td><td>2001</td></tr>
+ <tr><td>Kentucky</td><td>Louisville</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/seneca.gif" height="50" width="50"/></td><td><a href="http://www.jefferson.k12.ky.us/schools/high/Seneca/index.html" target="_blank">Seneca</a></td><td>Redhawks</td><td>1997</td></tr>
+ <tr><td>Colorado</td><td>Arvada</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/arvada.gif" height="50" width="50"/></td><td><a href="https://sites.google.com/a/jeffcoschools.us/arvada-high-school/staff" target="_blank">Arvada</a></td><td>Bulldogs</td><td>1993</td></tr>
+ <tr><td>Massachusetts</td><td>South Deerfield</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/frontier.gif" height="50" width="50"/></td><td><a href="http://www.edline.net/pages/Frontier_Regional" target="_blank">Frontier Regional</a></td><td>Redhawks</td><td>2000</td></tr>
+ <tr><td>Illinois</td><td>Naperville</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/naperville.gif" height="50" width="50"/></td><td><a href="http://schools.naperville203.org/central/" target="_blank">Naperville Central</a></td><td>Redhawks</td><td>1992</td></tr>
+ <tr><td>Maine</td><td>Scarborough</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/scarborough.gif" height="50" width="50"/></td><td><a href="http://www.scarborough.k12.me.us/Highschool/default.cfm" target="_blank">Scarborough</a></td><td>Red Storm</td><td>2001</td></tr>
+ <tr><td>Illinois</td><td>Chicago</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/marist.gif" height="50" width="50"/></td><td><a href="http://www.marist.net/" target="_blank">Marist</a></td><td>Redhawks</td><td>1997</td></tr>
+ <tr><td>New York</td><td>Saranac Lake</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/saranaclake.gif" height="50" width="50"/></td><td><a href="http://saranaclakecs.org/education/school/school.php?sectionid=190" target="_blank">Saranac Lake</a></td><td>Red Storm</td><td>2001</td></tr>
+ <tr><td>Illinois</td><td>Chatham</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/glenwood.gif" height="50" width="50"/></td><td><a href="http://ghs.chathamschools.org/" target="_blank">Glenwood</a></td><td>Titans</td><td>2001</td></tr>
+ <tr><td>Michigan</td><td>Highland</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/milford.gif" height="50" width="50"/></td><td><a href="http://www.hvs.org/schools/highschools/milford/" target="_blank">Milford</a></td><td>Mavericks</td><td>2002</td></tr>
+ <tr><td>California</td><td>Colusa</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/colusa.gif" height="50" width="50"/></td><td><a href="http://www.colusahigh.org/" target="_blank">Colusa</a></td><td>Red Hawks</td><td>2011</td></tr>
+ <tr><td>California</td><td>Pine Valley</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/mountainempire.gif" height="50" width="50"/></td><td><a href="http://mesh-meusd-ca.schoolloop.com/" target="_blank">Mountain Empire</a></td><td>Redhawks</td><td>1997</td></tr>
+ <tr><td>Florida</td><td>Fort Lauderdale</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/cardinalgibbons.gif" height="50" width="50"/></td><td><a href="http://www.cghsfl.org/" target="_blank">Cardinal Gibbons</a></td><td>Chiefs</td><td>2006</td></tr>
+ <tr><td>Florida</td><td>Tallahassee</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/rickards.gif" height="50" width="50"/></td><td><a href="http://www.rickards.leon.k12.fl.us/" target="_blank">James S. Rickards</a></td><td>Raiders</td><td>2000</td></tr>
+ <tr><td>Illinois</td><td>Huntley</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/huntley.gif" height="50" width="50"/></td><td><a href="http://www.d158.k12.il.us/hhs/index.html" target="_blank">Huntley</a></td><td>Red Raiders</td><td>2002</td></tr>
+ <tr><td>Maryland</td><td>Baltimore</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/edmondsonwestside.gif" height="50" width="50"/></td><td><a href="http://www.baltimorecityschools.org/Domain/3871" target="_blank">Edmondson-Westside</a></td><td>Redstorm</td><td>2002</td></tr>
+ <tr><td>Michigan</td><td>Marshall</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/marshall.gif" height="50" width="50"/></td><td><a href="http://www.marshall.k12.mi.us/MHS/index.php" target="_blank">Marshall</a></td><td>Redhawks</td><td>2005</td></tr>
+ <tr><td>Michigan</td><td>Oak Park</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/oakpark.gif" height="50" width="50"/></td><td><a href="http://www.oakparkschools.org/schools/oakparkhigh" target="_blank">Oak Park</a></td><td>Knights</td><td>1990</td></tr>
+ <tr><td>Montana</td><td>Red Lodge</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/redlodge.gif" height="50" width="50"/></td><td><a href="http://redlodge.schoolwires.com/domain/36" target="_blank">Red Lodge</a></td><td>Rams</td><td>2011</td></tr>
+ <tr><td>New Hampshire</td><td>Goffstown</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/goffstown.gif" height="50" width="50"/></td><td><a href="http://www.goffstown.k12.nh.us/ghs/" target="_blank">Goffstown</a></td><td>Grizzlies</td><td>1994</td></tr>
+ <tr><td>New York</td><td>Canajoharie</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/canajoharie.gif" height="50" width="50"/></td><td><a href="http://www.canajoharieschools.org/high/hs_home.cfm" target="_blank">Canajoharie</a></td><td>Cougars</td><td>2000</td></tr>
+ <tr><td>Idaho</td><td>Gooding</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/isdb.gif" height="50" width="50"/></td><td><a href="http://www.iesdb.org/" target="_blank">Idaho School for the Deaf and the Blind</a></td><td>Raptors</td><td>1990</td></tr>
+ <tr><td>Washington</td><td>Cosmopolis</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/northriver.gif" height="50" width="50"/></td><td><a href="http://www.nr.k12.wa.us/" target="_blank">North River</a></td><td>Mustangs</td><td>1995</td></tr>
+ <tr><td>Iowa</td><td>Iowa Falls</td><td class="logo"><img src="http://cnsmaryland.org/interactives/redskins-map/images/iowafalls.gif" height="50" width="50"/></td><td><a href="http://www.ifacadets.net/iowa_falls_alden_high/about_our_school.php" target="_blank">Iowa Falls-Alden</a></td><td>Cadets</td><td>1999</td></tr>
+      </tbody>	  
+    </table>
+    
+  </body>
+</html>

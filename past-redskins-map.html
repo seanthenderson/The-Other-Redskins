@@ -1,0 +1,1747 @@
+<html>
+	<head>
+		<title>Past Redskins Map</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+		<style>
+			body {
+				width: 100%;
+			}
+			.title {
+				width: 595px;
+				font-size: 31.5px;
+				font-weight: bold;
+				font-family: Gill sans;
+				color: maroon;
+				text-shadow: 3px 3px 5px #000;
+				/*background: gold;*/
+				border: ridge 3px #000;
+				border-radius: 10px;
+				text-align: center;
+				margin-bottom: 2px;
+			}
+			#map3d {
+				cursor: pointer;
+				width: 100%;
+			}
+			#zoomout {
+				position: absolute;
+				top: 650px;
+				left: 30px;
+			}
+			#p1d {
+				display: none;
+			}
+			.button {
+				color: #FFFFFF;
+				font-family: 'Open Sans Condensed', sans-serif;
+        		font-size: 14px;
+        		font-weight: 700;
+        		text-shadow: 1px 1px 5px #000;
+        		background: #999999;
+				background: -moz-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -webkit-gradient(linear, left top, right top, color-stop(0%,#999999), color-stop(100%,#ffffff));
+				background: -webkit-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -o-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -ms-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#ffffff',GradientType=1 );
+				-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#ffffff',GradientType=1 );
+				background: linear-gradient(top, #999999 0%, #E6E6E6 100%);
+			}
+		</style>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="jquery.1.9.1.js"></script>
+		<script type="text/javascript">
+
+			var ge;
+			google.load("earth", "1");
+			
+			function init() {
+				google.earth.createInstance('map3d', initCB, failureCB);
+			}
+			
+			function initCB(instance) {
+				ge = instance;
+				ge.getWindow().setVisibility(true);
+				ge.getNavigationControl().setVisibility(ge.VISIBILITY_AUTO);
+				ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+				ge.getLayerRoot().enableLayerById(ge.LAYER_BUILDINGS, true);
+				ge.getLayerRoot().enableLayerById(ge.LAYER_TERRAIN, true);
+				//ge.getSun().setVisibility(true);
+				ge.getOptions().setAtmosphereVisibility(true);
+				ge.getOptions().setFlyToSpeed(0.3);
+				
+				var lookAt = ge.createLookAt('');
+				lookAt.setLatitude(37.421912);
+				lookAt.setLongitude(-95.131481);
+				lookAt.setRange(5700000.0);
+				ge.getView().setAbstractView(lookAt);
+				
+				/*var camera = ge.getView().copyAsCamera(ge.ALTITUDE_RELATIVE_TO_GROUND);
+				camera.setTilt(camera.getTilt() + 30.0);
+				camera.setRoll(camera.getRoll() + 45.0);
+				ge.getView().setAbstractView(camera);*/
+				
+//==================== W I S C A S S E T ========================				
+				var wiscasset = ge.createPlacemark('');
+				wiscasset.getBalloonHtmlUnsafe();
+				//wiscasset.setName('Wiscasset High School');
+				var icon = ge.createIcon('');
+	            icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/wiscasset.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.3);
+				wiscasset.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(44.022771);
+				point.setLongitude(-69.670347);
+				wiscasset.setGeometry(point);
+				ge.getFeatures().appendChild(wiscasset);
+				
+				google.earth.addEventListener(wiscasset, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(wiscasset);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Wiscasset High School<br/></span><span style="font-family: Gill sans;">Wiscasset, Maine<br/><a style="color: blue; text-decoration: none;" href="http://whs.wiscasset.k12.me.us/" target="_blank">School Website</a><br/>Year Changed: 2011</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+
+//==================== S A N F O R D ========================	
+				var sanford = ge.createPlacemark('');
+				//sanford.setName("Sanford High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/sanford.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.7);
+				sanford.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(43.455084);
+				point.setLongitude(-70.783957);
+				sanford.setGeometry(point);
+				ge.getFeatures().appendChild(sanford);
+				
+				google.earth.addEventListener(sanford, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(sanford);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Sanford High School<br/></span><span style="font-family: Gill sans;">Sanford, Maine<br/><a style="color: blue; text-decoration: none;" href="http://www.sanford.org/index.asp?Type=B_BASIC&SEC={06A91124-1E6F-4772-9ABB-969B8459589B}" target="_blank">School Website</a><br/>Year Changed: 2012</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = “block”;
+				});
+
+//==================== G R A N D - F O R K S ========================					
+				var grandforks = ge.createPlacemark('');
+				//grandforks.setName("Grand Forks Central High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/grandforks3.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				grandforks.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(47.924869);
+				point.setLongitude(-97.032706);
+				grandforks.setGeometry(point);
+				ge.getFeatures().appendChild(grandforks);
+				
+				google.earth.addEventListener(grandforks, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(grandforks);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Grand Forks Central High School<br/></span><span style="font-family: Gill sans;">Grand Forks, North Dakota<br/><a style="color: blue; text-decoration: none;" href="http://www.edline.net/pages/gfc" target="_blank">School Website</a><br/>Year Changed: 1992</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+
+//==================== H I A W A T H A ========================					
+				var hiawatha = ge.createPlacemark('');
+				//hiawatha.setName("Hiawatha High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/hiawatha.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.7);
+				hiawatha.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.850457);
+				point.setLongitude(-95.525479);
+				hiawatha.setGeometry(point);
+				ge.getFeatures().appendChild(hiawatha);
+				
+				google.earth.addEventListener(hiawatha, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(hiawatha);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Hiawatha High School<br/></span><span style="font-family: Gill sans;">Hiawatha, Kansas<br/><a style="color: blue; text-decoration: none;" href="http://www.hiawathaschools.org/vnews/display.v/SEC/High%20School" target="_blank">School Website</a><br/>Year Changed: 2001</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+
+//==================== P A R S I P P A N Y ========================					
+				var parsippany = ge.createPlacemark('');
+				//parsippany.setName("Parsippany High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/parsippany.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				parsippany.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.868532);
+				point.setLongitude(-74.390187);
+				parsippany.setGeometry(point);
+				ge.getFeatures().appendChild(parsippany);
+				
+				google.earth.addEventListener(parsippany, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(parsippany);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Parsippany High School<br/></span><span style="font-family: Gill sans;">Parsippany-Troy Hills, New Jersey<br/><a style="color: blue; text-decoration: none;" href="http://www.pthsd.k12.nj.us/sch/phs/phs.title.html" target="_blank">School Website</a><br/>Year Changed: 2001</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+	
+//==================== S E N E C A ========================					
+				var seneca = ge.createPlacemark('');
+				//seneca.setName("Seneca High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/seneca.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				seneca.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(38.209515);
+				point.setLongitude(-85.654746);
+				seneca.setGeometry(point);
+				ge.getFeatures().appendChild(seneca);
+				
+				google.earth.addEventListener(seneca, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(seneca);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Seneca High School<br/></span><span style="font-family: Gill sans;">Louisville, Kentucky<br/><a style="color: blue; text-decoration: none;" href="http://www.jefferson.k12.ky.us/schools/high/Seneca/index.html" target="_blank">School Website</a><br/>Year Changed: 1997</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== A R V A D A ========================					
+				var arvada = ge.createPlacemark('');
+				//arvada.setName("Arvada High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/arvada.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				arvada.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.817593);
+				point.setLongitude(-105.083821);
+				arvada.setGeometry(point);
+				ge.getFeatures().appendChild(arvada);
+				
+				google.earth.addEventListener(arvada, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(arvada);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Arvada High School<br/></span><span style="font-family: Gill sans;">Arvada, Colorado<br/><a style="color: blue; text-decoration: none;" href="https://sites.google.com/a/jeffcoschools.us/arvada-high-school/staff" target="_blank">School Website</a><br/>Year Changed: 1993</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//====================  F R O N T I E R ========================					
+				var frontier = ge.createPlacemark('');
+				//frontier.setName("Frontier Regional School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/frontier.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				frontier.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.484219);
+				point.setLongitude(-72.607301);
+				frontier.setGeometry(point);
+				ge.getFeatures().appendChild(frontier);
+				
+				google.earth.addEventListener(frontier, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(frontier);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Frontier Regional School<br/></span><span style="font-family: Gill sans;">Deerfield, Massachusetts<br/><a style="color: blue; text-decoration: none;" href="http://www.edline.net/pages/Frontier_Regional" target="_blank">School Website</a><br/>Year Changed: 2000</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== N A P E R V I L L E ========================					
+				var naperville = ge.createPlacemark('');
+				//naperville.setName("Naperville Central High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/naperville.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.8);
+				naperville.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.768903);
+				point.setLongitude(-88.15316);
+				naperville.setGeometry(point);
+				ge.getFeatures().appendChild(naperville);
+				
+				google.earth.addEventListener(naperville, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(naperville);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Naperville Central High School<br/></span><span style="font-family: Gill sans;">Naperville, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://schools.naperville203.org/central/" target="_blank">School Website</a><br/>Year Changed: 1992</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S C A R B O R O U G H ========================					
+				var scarborough = ge.createPlacemark('');
+				//scarborough.setName("Scarborough High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/scarborough.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(3.0);
+				scarborough.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(43.592265);
+				point.setLongitude(-70.339601);
+				scarborough.setGeometry(point);
+				ge.getFeatures().appendChild(scarborough);
+				
+				google.earth.addEventListener(scarborough, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(scarborough);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Scarborough High School<br/></span><span style="font-family: Gill sans;">Scarborough, Maine<br/><a style="color: blue; text-decoration: none;" href="http://www.scarborough.k12.me.us/Highschool/default.cfm" target="_blank">School Website</a><br/>Year Changed: 2001</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M A R I S T ========================					
+				var marist = ge.createPlacemark('');
+				//marist.setName("Marist High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/marist.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				marist.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.685733);
+				point.setLongitude(-87.718856);
+				marist.setGeometry(point);
+				ge.getFeatures().appendChild(marist);
+				
+				google.earth.addEventListener(marist, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(marist);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Marist High School<br/></span><span style="font-family: Gill sans;">Chicago, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://www.marist.net/" target="_blank">School Website</a><br/>Year Changed: 1997</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S A R A N A C - L A K E ========================					
+				var saranaclake = ge.createPlacemark('');
+				//saranaclake.setName("Saranac Lake High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/saranaclake.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.8);
+				saranaclake.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(44.328407);
+				point.setLongitude(-74.144647);
+				saranaclake.setGeometry(point);
+				ge.getFeatures().appendChild(saranaclake);
+				
+				google.earth.addEventListener(saranaclake, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(saranaclake);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Saranac Lake High School<br/></span><span style="font-family: Gill sans;">Saranac Lake, New York<br/><a style="color: blue; text-decoration: none;" href="http://saranaclakecs.org/education/school/school.php?sectionid=190" target="_blank">School Website</a><br/>Year Changed: 2001</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== G L E N W O O D ========================					
+				var glenwood = ge.createPlacemark('');
+				//glenwood.setName("Glenwood High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/glenwood.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				glenwood.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.69014);
+				point.setLongitude(-89.68763);
+				glenwood.setGeometry(point);
+				ge.getFeatures().appendChild(glenwood);
+				
+				google.earth.addEventListener(glenwood, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(glenwood);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Glenwood High School<br/></span><span style="font-family: Gill sans;">Chatham, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://ghs.chathamschools.org/" target="_blank">School Website</a><br/>Year Changed: 2001</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M I L F O R D ========================					
+				var milford = ge.createPlacemark('');
+				//milford.setName("Milford High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/milford.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				milford.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.618684);
+				point.setLongitude(-83.620323);
+				milford.setGeometry(point);
+				ge.getFeatures().appendChild(milford);
+				
+				google.earth.addEventListener(milford, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(milford);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Milford High School<br/></span><span style="font-family: Gill sans;">Highland, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.hvs.org/schools/highschools/milford/" target="_blank">School Website</a><br/>Year Changed: 2002</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C O L U S A ========================					
+				var colusa = ge.createPlacemark('');
+				//colusa.setName("Colusa High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/colusa.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				colusa.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.199049);
+				point.setLongitude(-122.019133);
+				colusa.setGeometry(point);
+				ge.getFeatures().appendChild(colusa);
+				
+				google.earth.addEventListener(colusa, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(colusa);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Colusa High School<br/></span><span style="font-family: Gill sans;">Colusa, California<br/><a style="color: blue; text-decoration: none;" href="http://www.colusahigh.org/" target="_blank">School Website</a><br/>Year Changed: 2011</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M O U N T A I N - E M P I R E ========================					
+				var mountainempire = ge.createPlacemark('');
+				//mountainempire.setName("Mountain Empire High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/mountainempire.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				mountainempire.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(32.749348);
+				point.setLongitude(-116.492870);
+				mountainempire.setGeometry(point);
+				ge.getFeatures().appendChild(mountainempire);
+				
+				google.earth.addEventListener(mountainempire, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(mountainempire);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Mountain Empire High School<br/></span><span style="font-family: Gill sans;">Pine Valley, California<br/><a style="color: blue; text-decoration: none;" href="http://mesh-meusd-ca.schoolloop.com/" target="_blank">School Website</a><br/>Year Changed: 1997</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C A R D I N A L - G I B B O N S ========================					
+				var cardinalgibbons = ge.createPlacemark('');
+				//cardinalgibbons.setName("Cardinal Gibbons High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/cardinalgibbons.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				cardinalgibbons.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(26.18549);
+				point.setLongitude(-80.10907);
+				cardinalgibbons.setGeometry(point);
+				ge.getFeatures().appendChild(cardinalgibbons);
+				
+				google.earth.addEventListener(cardinalgibbons, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(cardinalgibbons);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Cardinal Gibbons High School<br/></span><span style="font-family: Gill sans;">Fort Lauderdale, Florida<br/><a style="color: blue; text-decoration: none;" href="http://www.cghsfl.org/" target="_blank">School Website</a><br/>Year Changed: 2006</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== J A M E S - S. - R I C K A R D S ========================					
+				var rickards = ge.createPlacemark('');
+				//rickards.setName("James S. Rickards High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/rickards.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(3.0);
+				rickards.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(30.409397);
+				point.setLongitude(-84.261907);
+				rickards.setGeometry(point);
+				ge.getFeatures().appendChild(rickards);
+				
+				google.earth.addEventListener(rickards, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(rickards);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">James S. Rickards High School<br/></span><span style="font-family: Gill sans;">Tallahassee, Florida<br/><a style="color: blue; text-decoration: none;" href="http://www.rickards.leon.k12.fl.us/" target="_blank">School Website</a><br/>Year Changed: 2000</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== H U N T L E Y ========================					
+				var huntley = ge.createPlacemark('');
+				//huntley.setName("Huntley High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/huntley.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				huntley.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.163483);
+				point.setLongitude(-88.462987);
+				huntley.setGeometry(point);
+				ge.getFeatures().appendChild(huntley);
+				
+				google.earth.addEventListener(huntley, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(huntley);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Huntley High School<br/></span><span style="font-family: Gill sans;">Huntley, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://www.d158.k12.il.us/hhs/index.html" target="_blank">School Website</a><br/>Year Changed: 2002</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== E D M O N D S O N - W E S T S I D E ========================					
+				var edmondsonwestside = ge.createPlacemark('');
+				//edmondsonwestside.setName("Edmondson-Westside High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/edmondsonwestside.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				edmondsonwestside.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.292436);
+				point.setLongitude(-76.687006);
+				edmondsonwestside.setGeometry(point);
+				ge.getFeatures().appendChild(edmondsonwestside);
+				
+				google.earth.addEventListener(edmondsonwestside, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(edmondsonwestside);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Edmondson-Westside High School<br/></span><span style="font-family: Gill sans;">Baltimore, Maryland<br/><a style="color: blue; text-decoration: none;" href="http://www.baltimorecityschools.org/Domain/3871" target="_blank">School Website</a><br/>Year Changed: 2002</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M A R S H A L L ========================					
+				var marshall = ge.createPlacemark('');
+				//marshall.setName("Marshall High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/marshall.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				marshall.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.286524);
+				point.setLongitude(-84.955891);
+				marshall.setGeometry(point);
+				ge.getFeatures().appendChild(marshall);
+				
+				google.earth.addEventListener(marshall, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(marshall);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Marshall High School<br/></span><span style="font-family: Gill sans;">Marshall, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.marshall.k12.mi.us/MHS/index.php" target="_blank">School Website</a><br/>Year Changed: 2005</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== O A K - P A R K ========================					
+				var oakpark = ge.createPlacemark('');
+				//oakpark.setName("Oak Park High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/oakpark.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				oakpark.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.466233);
+				point.setLongitude(-83.185548);
+				oakpark.setGeometry(point);
+				ge.getFeatures().appendChild(oakpark);
+				
+				google.earth.addEventListener(oakpark, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(oakpark);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Oak Park High School<br/></span><span style="font-family: Gill sans;">Oak Park, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.oakparkschools.org/schools/oakparkhigh" target="_blank">School Website</a><br/>Year Changed: 1990</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== R E D - L O D G E ========================					
+				var redlodge = ge.createPlacemark('');
+				//redlodge.setName("Red Lodge High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/redlodge.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(3.0);
+				redlodge.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(45.19474);
+				point.setLongitude(-109.242479);
+				redlodge.setGeometry(point);
+				ge.getFeatures().appendChild(redlodge);
+				
+				google.earth.addEventListener(redlodge, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(redlodge);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Red Lodge High School<br/></span><span style="font-family: Gill sans;">Red Lodge, Montana<br/><a style="color: blue; text-decoration: none;" href="http://redlodge.schoolwires.com/domain/36" target="_blank">School Website</a><br/>Year Changed: 2011</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== G O F F S T O W N ========================					
+				var goffstown = ge.createPlacemark('');
+				//goffstown.setName("Goffstown High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/goffstown.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				goffstown.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(43.013515);
+				point.setLongitude(-71.583513);
+				goffstown.setGeometry(point);
+				ge.getFeatures().appendChild(goffstown);
+				
+				google.earth.addEventListener(goffstown, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(goffstown);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Goffstown High School<br/></span><span style="font-family: Gill sans;">Goffstown, New Hampshire<br/><a style="color: blue; text-decoration: none;" href="http://www.goffstown.k12.nh.us/ghs/" target="_blank">School Website</a><br/>Year Changed: 1994</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C A N A J O H A R I E ========================					
+				var canajoharie = ge.createPlacemark('');
+				//canajoharie.setName("Canajoharie High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/canajoharie.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				canajoharie.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.896843);
+				point.setLongitude(-74.562117);
+				canajoharie.setGeometry(point);
+				ge.getFeatures().appendChild(canajoharie);
+				
+				google.earth.addEventListener(canajoharie, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(canajoharie);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Canajoharie High School<br/></span><span style="font-family: Gill sans;">Canajoharie, New York<br/><a style="color: blue; text-decoration: none;" href="http://www.canajoharieschools.org/high/hs_home.cfm" target="_blank">School Website</a><br/>Year Changed: 2000</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== N O R T H - R I V E R ========================					
+				var northriver = ge.createPlacemark('');
+				//northriver.setName("North River School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/northriver.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				northriver.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(46.775865);
+				point.setLongitude(-123.484697);
+				northriver.setGeometry(point);
+				ge.getFeatures().appendChild(northriver);
+				
+				google.earth.addEventListener(northriver, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(northriver);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">North River High School<br/></span><span style="font-family: Gill sans;">Cosmopolis, Washington<br/><a style="color: blue; text-decoration: none;" href="http://www.nr.k12.wa.us/" target="_blank">School Website</a><br/>Year Changed: 1995</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== I S D B ========================					
+				var isdb = ge.createPlacemark('');
+				//isdb.setName("Idaho School for the Deaf and the Blind");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/isdb.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.7);
+				isdb.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.9308);
+				point.setLongitude(-114.712206);
+				isdb.setGeometry(point);
+				ge.getFeatures().appendChild(isdb);
+				
+				google.earth.addEventListener(isdb, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(isdb);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Idaho School for the Deaf and the Blind<br/></span><span style="font-family: Gill sans;">Gooding, Idaho<br/><a style="color: blue; text-decoration: none;" href="http://www.iesdb.org/" target="_blank">School Website</a><br/>Year Changed: early 1990&rsquo;s</span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M O M E N C E ========================					
+				/*var momence = ge.createPlacemark('');
+				//momence.setName("Momence High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/momence.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				momence.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.164472);
+				point.setLongitude(-87.671853);
+				momence.setGeometry(point);
+				ge.getFeatures().appendChild(momence);
+				
+				google.earth.addEventListener(momence, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(momence);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Momence High School<br/></span><span style="font-family: Gill sans;">Momence, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://www.momence.k12.il.us/hs/index.html" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=momence&State=17&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=172643002831" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== N O K O M I S ========================					
+				var nokomis = ge.createPlacemark('');
+				//nokomis.setName("Nokomis High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/nokomis.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				nokomis.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.305654);
+				point.setLongitude(-89.295974);
+				nokomis.setGeometry(point);
+				ge.getFeatures().appendChild(nokomis);
+				
+				google.earth.addEventListener(nokomis, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(nokomis);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Nokomis High School<br/></span><span style="font-family: Gill sans;">Nokomis, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://www.nokomis.k12.il.us/index.php/high-school#.UTC1yOvF1bw" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=nokomis&State=17&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=172856002990" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S H A W N E E ========================					
+				var shawnee = ge.createPlacemark('');
+				//shawnee.setName("Shawnee Jr./Sr. High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/shawnee.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				shawnee.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(37.489485);
+				point.setLongitude(-89.42296);
+				shawnee.setGeometry(point);
+				ge.getFeatures().appendChild(shawnee);
+				
+				google.earth.addEventListener(shawnee, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(shawnee);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Shawnee Jr./Sr. High School<br/></span><span style="font-family: Gill sans;">Wolf Lake, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://www.shawneedistrict84.com/SHAWNEE.html" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=shawnee&State=17&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=174299004313" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M O R R I S ========================					
+				var morris = ge.createPlacemark('');
+				//morris.setName("Morris Community High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/morris.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				morris.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.365738);
+				point.setLongitude(-88.43006);
+				morris.setGeometry(point);
+				ge.getFeatures().appendChild(morris);
+				
+				google.earth.addEventListener(morris, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(morris);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Morris Community High School<br/></span><span style="font-family: Gill sans;">Morris, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://www.mchs.grundy.k12.il.us/vnews/display.v/SEC/Athletics%7CAthletics%202000" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=morris&State=17&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=172664002851" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S U L L I V A N ========================					
+				var sullivan = ge.createPlacemark('');
+				//sullivan.setName("Sullivan Community High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/sullivan.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				sullivan.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.607317);
+				point.setLongitude(-88.606035);
+				sullivan.setGeometry(point);
+				ge.getFeatures().appendChild(sullivan);
+				
+				google.earth.addEventListener(sullivan, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(sullivan);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Sullivan High School<br/></span><span style="font-family: Gill sans;">Sullivan, Illinois<br/><a style="color: blue; text-decoration: none;" href="http://home.sullivan.k12.il.us/SHS/index.php" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=sullivan&State=17&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=173813003906" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== G O S H E N ========================					
+				var goshen = ge.createPlacemark('');
+				//goshen.setName("Goshen High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/goshen.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				goshen.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.583125);
+				point.setLongitude(-85.824434);
+				goshen.setGeometry(point);
+				ge.getFeatures().appendChild(goshen);
+				
+				google.earth.addEventListener(goshen, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(goshen);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Goshen High School<br/></span><span style="font-family: Gill sans;">Goshen, Indiana<br/><a style="color: blue; text-decoration: none;" href="https://ghs.goshenschools.org/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=goshen+&State=18&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=180393000654" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== K N O X ========================					
+				var knox = ge.createPlacemark('');
+				//knox.setName("Knox Community High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/knox.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				knox.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.28649);
+				point.setLongitude(-86.623807);
+				knox.setGeometry(point);
+				ge.getFeatures().appendChild(knox);
+				
+				google.earth.addEventListener(knox, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(knox);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Knox Community High School<br/></span><span style="font-family: Gill sans;">Knox, Indiana<br/><a style="color: blue; text-decoration: none;" href="http://hs.knox.k12.in.us/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=knox&State=18&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=180534000938" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== N O R T H - S I D E ========================					
+				var northside = ge.createPlacemark('');
+				//northside.setName("North Side High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/northside.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				northside.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.097206);
+				point.setLongitude(-85.133089);
+				northside.setGeometry(point);
+				ge.getFeatures().appendChild(northside);
+				
+				google.earth.addEventListener(northside, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(northside);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">North Side High School<br/></span><span style="font-family: Gill sans;">Fort Wayne, Indiana<br/><a style="color: blue; text-decoration: none;" href="http://northside.fwcs.k12.in.us/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=north+side&State=18&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=180363000550" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== E M M E R I C H - M A N U A L ========================					
+				var emmerichmanual = ge.createPlacemark('');
+				//emmerichmanual.setName("Emmerich Manual High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/emmerichmanual.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				emmerichmanual.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.734724);
+				point.setLongitude(-86.150944);
+				emmerichmanual.setGeometry(point);
+				ge.getFeatures().appendChild(emmerichmanual);
+				
+				google.earth.addEventListener(emmerichmanual, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(emmerichmanual);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Emmerich Manual High School<br/></span><span style="font-family: Gill sans;">Indianapolis, Indiana<br/><a style="color: blue; text-decoration: none;" href="http://emmerichmanualhs.org/default.html" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=manual&State=18&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=180477000825" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== L I B E R A L ========================					
+				var liberal = ge.createPlacemark('');
+				//liberal.setName("Liberal High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/liberal.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				liberal.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(37.045424);
+				point.setLongitude(-100.944765);
+				liberal.setGeometry(point);
+				ge.getFeatures().appendChild(liberal);
+				
+				google.earth.addEventListener(liberal, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(liberal);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Liberal High School<br/></span><span style="font-family: Gill sans;">Liberal, Kansas<br/><a style="color: blue; text-decoration: none;" href="http://liberal1.gabbartllc.com/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=liberal&State=20&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=200873001286" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== N O R T H ========================					
+				var north = ge.createPlacemark('');
+				//north.setName("North High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/north.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				north.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(37.710324);
+				point.setLongitude(-97.342783);
+				north.setGeometry(point);
+				ge.getFeatures().appendChild(north);
+				
+				google.earth.addEventListener(north, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(north);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">North High School<br/></span><span style="font-family: Gill sans;">Wichita, Kansas<br/><a style="color: blue; text-decoration: none;" href="http://athletics-home.north.usd259.org/modules/groups/integrated_home.phtml?gid=1562637" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=north&State=20&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=201299000346" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== L I T T L E - R I V E R ========================					
+				var littleriver = ge.createPlacemark('');
+				//littleriver.setName("Little River High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/littleriver.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				littleriver.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(38.399418);
+				point.setLongitude(-98.014773);
+				littleriver.setGeometry(point);
+				ge.getFeatures().appendChild(littleriver);
+				
+				google.earth.addEventListener(littleriver, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(littleriver);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Little River High School<br/></span><span style="font-family: Gill sans;">Little River, Kansas<br/><a style="color: blue; text-decoration: none;" href="http://lrw.usd444.com/lrjsh/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=little+river&State=20&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=200888001102" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C A M D E N - F R O N T I E R ========================					
+				var camdenfrontier = ge.createPlacemark('');
+				//camdenfrontier.setName("Camden Frontier High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/camdenfrontier.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.4);
+				camdenfrontier.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.782369);
+				point.setLongitude(-84.706317);
+				camdenfrontier.setGeometry(point);
+				ge.getFeatures().appendChild(camdenfrontier);
+				
+				google.earth.addEventListener(camdenfrontier, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(camdenfrontier);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Camden Frontier High School<br/></span><span style="font-family: Gill sans;">Camden, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.cfss.org/Middle%20High%20School.htm" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=camden+frontier&State=26&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=260771004355" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C L I N T O N ========================					
+				var clinton = ge.createPlacemark('');
+				//clinton.setName("Clinton High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/clinton.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.5);
+				clinton.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.075546);
+				point.setLongitude(-83.963431);
+				clinton.setGeometry(point);
+				ge.getFeatures().appendChild(clinton);
+				
+				google.earth.addEventListener(clinton, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(clinton);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Clinton High School<br/></span><span style="font-family: Gill sans;">Clinton, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://ccshsweb.clinton.k12.mi.us/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=clinton&State=26&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=261005004490" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S A N D U S K Y ========================					
+				var sandusky = ge.createPlacemark('');
+				//sandusky.setName("Sandusky High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/sandusky.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.7);
+				sandusky.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(43.412779);
+				point.setLongitude(-82.825595);
+				sandusky.setGeometry(point);
+				ge.getFeatures().appendChild(sandusky);
+				
+				google.earth.addEventListener(sandusky, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(sandusky);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Sandusky High School<br/></span><span style="font-family: Gill sans;">Sandusky, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.sandusky.k12.mi.us/HighSchool.aspx" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=sandusky&State=26&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=263084006714" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== B E L D I N G ========================					
+				var belding = ge.createPlacemark('');
+				//belding.setName("Belding High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/belding.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.9);
+				belding.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(43.092812);
+				point.setLongitude(-85.224209);
+				belding.setGeometry(point);
+				ge.getFeatures().appendChild(belding);
+				
+				google.earth.addEventListener(belding, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(belding);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Belding High School<br/></span><span style="font-family: Gill sans;">Belding, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.bas-k12.org/index.php/schools/detail/hs/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=belding&State=26&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=260453004142" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== P A W - P A W ========================					
+				var pawpaw = ge.createPlacemark('');
+				//pawpaw.setName("Paw Paw High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/pawpaw.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.9);
+				pawpaw.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.223171);
+				point.setLongitude(-85.850397);
+				pawpaw.setGeometry(point);
+				ge.getFeatures().appendChild(pawpaw);
+				
+				google.earth.addEventListener(pawpaw, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(pawpaw);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Paw Paw High School<br/></span><span style="font-family: Gill sans;">Paw Paw, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.ppps.org/Domain/236" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=paw+paw&State=26&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=262766006352" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S A R A N A C ========================					
+				var saranac = ge.createPlacemark('');
+				//saranac.setName("Saranac High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/saranac.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.5);
+				saranac.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.928683);
+				point.setLongitude(-85.204103);
+				saranac.setGeometry(point);
+				ge.getFeatures().appendChild(saranac);
+				
+				google.earth.addEventListener(saranac, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(saranac);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Saranac High School<br/></span><span style="font-family: Gill sans;">Saranac, Michigan<br/><a style="color: blue; text-decoration: none;" href="http://www.saranac.k12.mi.us/schools/jr-sr-high-school/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=saranac&State=26&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=263093006717" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== L A N C A S T E R ========================					
+				var lancaster = ge.createPlacemark('');
+				//lancaster.setName("Lancaster High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/lancaster.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				lancaster.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.932312);
+				point.setLongitude(-78.666133);
+				lancaster.setGeometry(point);
+				ge.getFeatures().appendChild(lancaster);
+				
+				google.earth.addEventListener(lancaster, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(lancaster);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Lancaster High School<br/></span><span style="font-family: Gill sans;">Lancaster, New York<br/><a style="color: blue; text-decoration: none;" href="http://lancasterschools.org/lancasterhs" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=lancaster&State=36&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=361668001488" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C A N I S T E O - G R E E N W O O D ========================					
+				var canisteogreenwood = ge.createPlacemark('');
+				//canisteogreenwood.setName("Canisteo-Greenwood High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/canisteogreenwood.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.7);
+				canisteogreenwood.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(42.265122);
+				point.setLongitude(-77.612368);
+				canisteogreenwood.setGeometry(point);
+				ge.getFeatures().appendChild(canisteogreenwood);
+				
+				google.earth.addEventListener(canisteogreenwood, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(canisteogreenwood);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Canisteo-Greenwood High School<br/></span><span style="font-family: Gill sans;">Canisteo, New York<br/><a style="color: blue; text-decoration: none;" href="http://c2.cg.schoolwires.net/Page/217" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=canisteo&State=36&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=360012400426" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== O R I S K A N Y ========================					
+				var oriskany = ge.createPlacemark('');
+				//oriskany.setName("Oriskany Jr./Sr. High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/oriskany.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				oriskany.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(43.164692);
+				point.setLongitude(-75.341309);
+				oriskany.setGeometry(point);
+				ge.getFeatures().appendChild(oriskany);
+				
+				google.earth.addEventListener(oriskany, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(oriskany);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Oriskany Jr./Sr. High School<br/></span><span style="font-family: Gill sans;">Oriskany, New York<br/><a style="color: blue; text-decoration: none;" href="http://www.oriskanycsd.org/site/Default.aspx?PageID=11" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=oriskany&State=36&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=362196003116" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== M A N T E O ========================					
+				var manteo = ge.createPlacemark('');
+				//manteo.setName("Manteo High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/manteo.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				manteo.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(35.917007);
+				point.setLongitude(-75.674032);
+				manteo.setGeometry(point);
+				ge.getFeatures().appendChild(manteo);
+				
+				google.earth.addEventListener(manteo, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(manteo);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Manteo High School<br/></span><span style="font-family: Gill sans;">Manteo, North Carolina<br/><a style="color: blue; text-decoration: none;" href="http://mhs.darecountyschoolsonline.com/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=manteo&State=37&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=370111000457" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== A R C A D I A ========================					
+				var arcadia = ge.createPlacemark('');
+				//arcadia.setName("Arcadia High/Middle School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/arcadia.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				arcadia.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.107732);
+				point.setLongitude(-83.51385);
+				arcadia.setGeometry(point);
+				ge.getFeatures().appendChild(arcadia);
+				
+				google.earth.addEventListener(arcadia, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(arcadia);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Arcadia High/Middle School<br/></span><span style="font-family: Gill sans;">Arcadia, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.arcadia.noacsc.org/arcadiaHS_MS.aspx" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=arcadia&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=391000202888" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C A L D W E L L ========================					
+				var caldwell = ge.createPlacemark('');
+				//caldwell.setName("Caldwell High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/caldwell.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				caldwell.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.751405);
+				point.setLongitude(-81.517954);
+				caldwell.setGeometry(point);
+				ge.getFeatures().appendChild(caldwell);
+				
+				google.earth.addEventListener(caldwell, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(caldwell);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Caldwell High School<br/></span><span style="font-family: Gill sans;">Caldwell, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.caldwell.k12.oh.us/index.php?option=com_content&view=section&id=8&Itemid=100" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=caldwell&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390452502145" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== A N D E R S O N ========================					
+				var anderson = ge.createPlacemark('');
+				//anderson.setName("Anderson High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/anderson.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.8);
+				anderson.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(39.069971);
+				point.setLongitude(-84.346064);
+				anderson.setGeometry(point);
+				ge.getFeatures().appendChild(anderson);
+				
+				google.earth.addEventListener(anderson, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(anderson);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Anderson High School<br/></span><span style="font-family: Gill sans;">Cincinnati, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.foresthills.edu/school_home.aspx?schoolID=1" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=anderson&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390473402843" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C U Y A H O G A - H E I G H T S ========================					
+				var cuyahogaheights = ge.createPlacemark('');
+				//cuyahogaheights.setName("Cuyahoga Heights High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/cuyahogaheights.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(1.8);
+				cuyahogaheights.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.42853);
+				point.setLongitude(-81.642516);
+				cuyahogaheights.setGeometry(point);
+				ge.getFeatures().appendChild(cuyahogaheights);
+				
+				google.earth.addEventListener(cuyahogaheights, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(cuyahogaheights);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Cuyahoga Heights High School<br/></span><span style="font-family: Gill sans;">Cuyahoga Heights, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.cuyhts.k12.oh.us/school_home.aspx?schoolID=1" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=cuyahoga+heights&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390465502588" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== C O S H O C T O N ========================					
+				var coshocton = ge.createPlacemark('');
+				//coshocton.setName("Coshocton High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/coshocton.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				coshocton.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.259846);
+				point.setLongitude(-81.845741);
+				coshocton.setGeometry(point);
+				ge.getFeatures().appendChild(coshocton);
+				
+				google.earth.addEventListener(coshocton, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(coshocton);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Coshocton High School<br/></span><span style="font-family: Gill sans;">Coshocton, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.coshoctonredskins.com/coshoctonhighschool_home.aspx" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=coshocton&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390438200754" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== F O R T - L O R A M I E ========================					
+				var fortlaramie = ge.createPlacemark('');
+				//fortlaramie.setName("Fort Loramie Jr./Sr. High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/fortlaramie.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				fortlaramie.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.34634);
+				point.setLongitude(-84.362619);
+				fortlaramie.setGeometry(point);
+				ge.getFeatures().appendChild(fortlaramie);
+				
+				google.earth.addEventListener(fortlaramie, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(fortlaramie);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Fort Loramie Jr./Sr. High School<br/></span><span style="font-family: Gill sans;">Fort Loramie, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.loramie.k12.oh.us/juniorseniorhighschool_home.aspx" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=fort&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390497803693" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== S T - H E N R Y ========================					
+				var sthenry = ge.createPlacemark('');
+				//sthenry.setName("St. Henry High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/sthenry.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				sthenry.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.417335);
+				point.setLongitude(-84.634938);
+				sthenry.setGeometry(point);
+				ge.getFeatures().appendChild(sthenry);
+				
+				google.earth.addEventListener(sthenry, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(sthenry);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">St. Henry High School<br/></span><span style="font-family: Gill sans;">St. Henry, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.sh.noacsc.org/HighSchool" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=st+henry&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390485803305" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== W A P A K O N E T A ========================					
+				var wapakoneta = ge.createPlacemark('');
+				//wapakoneta.setName("Wapakoneta High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/wapakoneta.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				wapakoneta.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.584284);
+				point.setLongitude(-84.196419);
+				wapakoneta.setGeometry(point);
+				ge.getFeatures().appendChild(wapakoneta);
+				
+				google.earth.addEventListener(wapakoneta, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(wapakoneta);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Wapakoneta High School<br/></span><span style="font-family: Gill sans;">Wapakoneta, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://highschool.wapak.org/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=wapakoneta&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390449801904" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== I N D I A N - C R E E K ========================					
+				var indiancreek = ge.createPlacemark('');
+				//indiancreek.setName("Indian Creek High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/indiancreek.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				indiancreek.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.378239);
+				point.setLongitude(-80.714042);
+				indiancreek.setGeometry(point);
+				ge.getFeatures().appendChild(indiancreek);
+				
+				google.earth.addEventListener(indiancreek, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(indiancreek);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Indian Creek High School<br/></span><span style="font-family: Gill sans;">Wintersville, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.indiancreekredskins.org/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=indian+creek&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390478003004" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== P O R T - C L I N T O N ========================					
+				var portclinton = ge.createPlacemark('');
+				//portclinton.setName("Port Clinton High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/portclinton.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				portclinton.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.505982);
+				point.setLongitude(-82.936424);
+				portclinton.setGeometry(point);
+				ge.getFeatures().appendChild(portclinton);
+				
+				google.earth.addEventListener(portclinton, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(portclinton);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Port Clinton High School<br/></span><span style="font-family: Gill sans;">Port Clinton, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://hs.pccsd.net/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=port+clinton&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390446501536" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== L E D G E M O N T ========================					
+				var ledgemont = ge.createPlacemark('');
+				//ledgemont.setName("Ledgemont Jr./Sr. High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/ledgemont.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				ledgemont.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(41.69177);
+				point.setLongitude(-81.04596);
+				ledgemont.setGeometry(point);
+				ge.getFeatures().appendChild(ledgemont);
+				
+				google.earth.addEventListener(ledgemont, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(ledgemont);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Ledgemont Jr./Sr. High School<br/></span><span style="font-family: Gill sans;">Thompson, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://www.ledgemont.k12.oh.us/vnews/display.v/SEC/Junior/Senior%20High%20School" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=ledgemont&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390472002800" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== U T I C A ========================					
+				var utica = ge.createPlacemark('');
+				//utica.setName("Utica High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/utica.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				utica.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(40.238564);
+				point.setLongitude(-82.44559);
+				utica.setGeometry(point);
+				ge.getFeatures().appendChild(utica);
+				
+				google.earth.addEventListener(utica, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(utica);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Utica High School<br/></span><span style="font-family: Gill sans;">Utica, Ohio<br/><a style="color: blue; text-decoration: none;" href="http://northfork.k12.oh.us/HighSchool/UticaHigh.html" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=utica&State=39&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=390480203087" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+/*==================== D U S T I N ========================					
+				var dustin = ge.createPlacemark('');
+				//dustin.setName("Dustin High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/dustin.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.2);
+				dustin.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(35.273758);
+				point.setLongitude(-96.037561);
+				dustin.setGeometry(point);
+				ge.getFeatures().appendChild(dustin);
+				
+				google.earth.addEventListener(dustin, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(dustin);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Dustin High School<br/></span><span style="font-family: Gill sans;">Dustin, Oklahoma<br/><a style="color: blue; text-decoration: none;" href="http://www.dustin.k12.ok.us/" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=dustin&State=40&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=401041000463" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});
+				
+//==================== K I N G S T O N ========================					
+				var kingston = ge.createPlacemark('');
+				//kingston.setName("Kingston High School");
+				var icon = ge.createIcon('');
+				icon.setHref('http://cnsmaryland.org/interactives/redskins-map/images/kingston.gif');
+				var style = ge.createStyle('');
+				style.getIconStyle().setIcon(icon);
+				style.getIconStyle().setScale(2.0);
+				kingston.setStyleSelector(style);
+				var point = ge.createPoint('');
+				point.setLatitude(34.00251);
+				point.setLongitude(-96.713333);
+				kingston.setGeometry(point);
+				ge.getFeatures().appendChild(kingston);
+				
+				google.earth.addEventListener(kingston, 'click', function(event) {
+					event.preventDefault();
+					var balloon = ge.createHtmlDivBalloon('');
+					balloon.setFeature(kingston);
+					var div = document.createElement('p1d');
+					div.innerHTML = '<span style="font-family: Gill sans; font-size: 18px; font-weight: bold; width: 205px;">Kingston High School<br/></span><span style="font-family: Gill sans;">Kingston, Oklahoma<br/><a style="color: blue; text-decoration: none;" href="http://www.kingston.k12.ok.us/page/543" target="_blank">School Website</a><br/><a style="color: blue; text-decoration: none;" href="http://nces.ed.gov/ccd/schoolsearch/school_detail.asp?Search=1&InstName=kingston&State=40&SchoolType=1&SchoolType=2&SchoolType=3&SchoolType=4&SpecificSchlTypes=all&IncGrade=-1&LoGrade=-1&HiGrade=-1&ID=401659000774" target="_blank">Demographic Data</a></span>';
+					balloon.setContentDiv(div);
+					ge.setBalloon(balloon);
+					//document.getElementById('p1d').style.display = (“block”);
+				});*/
+			}
+			
+			function zoomOut() {
+				var lookAt = ge.createLookAt('');
+				lookAt.setLatitude(37.421912);
+				lookAt.setLongitude(-95.131481);
+				lookAt.setRange(5700000.0);
+				ge.getView().setAbstractView(lookAt);
+				ge.setBalloon(null);
+			}
+			
+			function failureCB(errorCode) {
+				//alert ();
+			}
+			
+			google.setOnLoadCallback(init);	
+
+		</script>
+	</head>
+	<body>
+		<!--<div class="title">High Schools with Redskins Mascots</div>-->
+		<div id="map3d" style="height: 700px; width: 100%;"></div>
+		<div id="p1d" class="popup" >test</div>
+		<button id="zoomout" class="button" onclick="zoomOut()">Click to zoom out</button>
+	</body>
+</html>

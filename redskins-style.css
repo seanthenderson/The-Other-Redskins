@@ -1,0 +1,694 @@
+			body {
+        		margin: 0;
+        		padding: 0;
+        		height: 20000px;
+        		overflow-x: hidden;
+        	}
+        	a, img {
+        		border: none;
+        		text-decoration: none;
+        	}
+        	button {
+        		position: relative;
+        		background: #000;
+        		color: #FFFFFF;
+        		/*font-family: 'Open Sans Condensed', sans-serif;*/
+        		font-family: Gill Sans, sans-serif;
+        		font-size: 14px;
+        		font-weight: bold;
+        		opacity: 0.7;
+        	}
+        	button:hover {
+        		opacity: 1.0;
+        	}
+        	/*#map1-button {
+        		opacity: 1.0;
+        	}*/
+        	/*================= M E D I A - Q U E R I E S ==================*/
+        	@media only screen and (max-device-width: 1024px)  {
+        		#map {
+        			display: none;
+        		}
+        		#map2 {
+        			display: none;
+        		}
+        		#td1 {
+        			display: none;
+        		}
+        		#td2 {
+        			display: none;
+        		}
+        		#map-explain {
+        			visibility: hidden;
+        		}
+        		#map-explain2 {
+        			visibility: hidden;
+        		}
+        		#apples-map-2 {
+        			display: none;
+        		}
+        		.popups {
+        			-moz-transform: scale(0.90, 0.90);
+					-webkit-transform: scale(0.90, 0.90);
+					-o-transform: scale(0.90, 0.90);
+					-ms-transform: scale(0.90, 0.90);
+					transform: scale(0.90, 0.90);
+					-moz-transform-origin: top left;
+					-webkit-transform-origin: top left;
+					-o-transform-origin: top left;
+					-ms-transform-origin: top left;
+					transform-origin: top left;
+        		}
+        		#refresh {
+        			display: none;
+					margin-top: -10000px;
+					position: relative;
+					z-index: -999;
+        		}
+        		#map2-button {
+        			display: none;
+        		}
+        		#td1-button {
+        			display: none;
+        		}
+        		#td2-button {
+        			display: none;
+        		}
+        		#map-explain-alt {
+        			margin-top: -50px;
+        		}
+        		#td1-button-alt {
+        			opacity: 0.70;
+        		}
+        		#td2-button-alt {
+        			opacity: 0.70;
+        		}
+        		#td1-button-alt a {
+        			color: #FFFFFF;
+        		}
+        		#td2-button-alt a {
+        			color: #FFFFFF;
+        		}
+        		#td1-button-alt a:visited {
+        			color: #FFFFFF;
+        		}
+        		#td2-button-alt a:visited {
+        			color: #FFFFFF;
+        		}
+        	}
+        	@media only screen and (min-device-width: 769px) and (max-width: 100000px) {
+        		#apples-map {
+        			display: none;
+        			z-index: -9999999;
+        		}
+        		#apples-map-2 {
+        			display: none;
+        		}
+        		#map-explain-alt {
+        			display: none;
+        		}
+        		#td1-button-alt {
+        			display: none;
+        		}
+        		#td2-button-alt {
+        			display: none;
+        		}
+        	}
+        		
+        	/*================= N A V I G A T I O N ==================*/
+        	nav {
+        		position: fixed;
+        		z-index: 4;
+        		width: 100%;
+        		height: 30px;
+        		font-family: 'Open Sans Condensed', sans-serif;
+        		font-size: 18px;
+        		font-weight: 600;
+        		color: #FFFFFF;
+        		text-shadow: 1px 1px 5px #000;
+        		padding: 0 20px 0 10px;
+        		margin: 0;
+        		background: #999999;
+				background: -moz-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -webkit-gradient(linear, left top, right top, color-stop(0%,#999999), color-stop(100%,#ffffff));
+				background: -webkit-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -o-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				/*background: -ms-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#ffffff',GradientType=1 );
+				-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#ffffff',GradientType=1 );*/
+				background: linear-gradient(top, #999999 0%, #E6E6E6 100%);
+        	}
+        	nav a {
+        		color: #FFFFFF;
+        		text-decoration: none;
+        	}
+        	nav a:visited {
+        		color: #FFFFFF;
+        	}
+        	nav:hover {
+        		cursor: pointer;
+        	}
+        	/*================= S O C I A L - M E D I A ==================*/
+        	#fb-button {
+        		position: relative;
+        		z-index: 999;
+        		float: right;
+        		margin: 2px 6px 0 0;
+        		/*visibility: hidden;*/
+        		opacity: 1.0;
+        	}
+        	#fb-recommend {
+        		position: relative;
+        		float: right;
+        		margin: 3px 30px 0 0;
+        		font-size: 15px;
+        		/*visibility: hidden;*/
+        	}
+        	.fb-like {
+				margin-top: -65px;
+            }
+            #fbhide {
+            	position: absolute;
+            	z-index: 999;
+            	top: 0;
+            	right: -70px;
+            	/*visibility: hidden;*/
+            	opacity: 0.0;
+            }
+        	#twitter-button {
+        		position: relative;
+        		float: right;
+        		margin: 0 3px 0 0;
+        	}
+        	#tweet {
+        		position: relative;
+        		float: right;
+        		margin: 3px 30px 0 0;
+        		font-size: 15px;
+        	}
+        	#twitter-hide {
+        		position: absolute;
+        		top: -1px;
+            	right: -50px;
+            	/*visibility: hidden;*/
+            	opacity: 0.0;
+        	}
+        	#email-button {
+        		position: relative;
+        		float: right;
+        		margin: 3px 8px 0 0;
+        	}
+        	#email {
+        		position: relative;
+        		float: right;
+        		margin: 3px 30px 0 0;
+        		font-size: 15px;
+        	}
+        	/*================= I N T R O ==================*/
+        	#sentence-intro {
+        		color: #FFFFFF;
+        		height: 150px;
+        		width: 100%;
+        		margin-bottom: 5px;
+        		background: #6fa79d;
+        		font-family: 'Open Sans Condensed', sans-serif;
+        		font-size: 40px;
+        		letter-spacing: 2;
+        		line-height: 180px;
+        		text-align: center;
+        	}
+        	#redskins-intro {
+        		position: relative;
+        		z-index: 3;
+        		margin: 0;
+        		width: 100%
+        	}
+        	#credits {
+        		position: relative;
+        		z-index: 4;
+            	background: #FFFFFF;
+            	color: #191919;
+            	height: 230px;
+            	width: 100%;
+            	font-family: 'Droid Serif', serif;
+            }
+            #credits-left {
+            	width: 420px;
+            	position: relative;
+            	float: left;
+            	font-size: 20.5px;
+            	padding: 50px 80px 50px 70px;
+            	text-align: left;
+            	letter-spacing: 0.5;
+            }
+            #credits-right {
+            	position: relative;
+            	float: right;
+            	width: 320px;
+            	margin-top: 40px;
+            	margin-right: 30px;
+            	padding: 30px 30px 50px 0;
+            	border-top: solid 1px #191919;
+            	font-size: 16px;
+            	font-style: italic;
+            	text-align: left;
+            }
+            .dateline {
+            	position: relative;
+            	float: left;
+            	margin-top: 20px;
+            	color: #B0B0B0;
+            	font-style: italic;
+            	font-size: 13px;
+            }
+            /*================= M A P ==================*/
+            #data-wrap {
+            	position: relative;
+            	height: 710px;
+            	width: 100%;
+            }
+            #map {
+            	position: relative;
+            	margin: 0 8px -50px -4px;
+            	z-index: 2;
+            	visibility: hidden;
+            }     
+            #map2 {
+            	position: relative;
+            	margin: -1440px 8px -32px -4px;
+            	z-index: 1;
+            	visibility: hidden;
+            }    
+            .explainers {
+            	text-align: left;
+            	margin: 10px;
+            	font-family: 'Droid Serif', serif;
+            	font-size: 16.5px;
+            	height: 80px;
+            	width: 90%;
+            }
+            #map-explain {
+            	
+            }
+            #apples-map {
+            	position: relative;
+            }
+            #apples-map-2 {
+            	position: relative;
+            	z-index: -999;
+            }
+            #refresh {
+            	position: absolute;
+            	z-index: 1;
+            	top: 745px;
+            	left: 100px;
+            	font-size: 12px;
+            	opacity: 0.70;
+            }
+            #refresh2 {
+            	position: absolute;
+            	z-index: 1;
+            	top: 745px;
+            	left: 100px;
+            	font-size: 12px;
+            	display: none;
+            }
+            @-moz-document url-prefix() {
+            	#map {
+            		margin-top: 2px;
+            	}
+            	#refresh {
+            		top: 730px;
+            	}
+            	#refresh2 {
+            		top: 730px;
+            	}
+            }
+            @media \0screen\,screen\9 {
+            	#refresh {
+            		top: 730px;
+            	}
+            }
+            @media screen\0 {
+            	#refresh {
+            		top: 730px;
+            	}
+            }
+            /*================= T A B L E S ==================*/
+            #td1 {
+            	position: relative;
+            	margin: -1455px 8px 0 -4px;
+            	z-index: 1;
+            	visibility: hidden;
+            	overflow: auto;
+            }     
+            #td2 {
+            	position: relative;
+            	margin: -1455px 8px 18px -4px;
+            	z-index: 1;
+            	visibility: hidden;
+            	overflow: auto;
+            }
+            /*================= S T O R Y ==================*/
+            #wrap {
+                width: 100%;
+                height: 20000px;
+                margin: 0 8px 0 0;
+            }
+            #story-wrap {
+            	width: 900px;
+            	height: 21020px;
+            	margin: 0px;
+            }
+            #first-paragraph {
+            	margin: 400px 60px 0 0;
+                position: relative;
+                float: right;
+                font-family: 'Droid Serif', serif;
+                font-size: 25px;
+                line-height: 35px;
+                text-align: left;
+                letter-spacing: 1;
+            }
+            .first-letter {
+                position: relative;
+                height: 140px;
+                width: 100px;
+                float: left;
+                font-family: 'Alike', serif;
+                font-size: 150px;
+                font-weight: 500;
+                line-height: 160px;
+                margin: -5px 20px 0 10px;
+                padding: 0 0 15px 17px;
+                background: #333333;
+                color: #FFFFFF;
+            }
+            #text {
+            	margin: 30px 20px 0 10px;
+                width: 400px;
+                float: left;
+                color: #333333;
+                font-family: Georgia;
+                font-size: 18px;
+                line-height: 30px;
+                text-align: left;
+            }
+            #research-box {
+            	position: relative;
+            	z-index: 1;
+            	width: 400px;
+            	margin: 0;
+            	padding: 20px;
+            	background: #DCDCDC;
+            	border: ridge 1px #666666;
+            }
+            #story-credits {
+            	font-size: 14px;
+            	font-style: italic;
+            }
+            /*================= P O P U P S ==================*/
+            .popups {
+                margin-top: 35px;
+                width: 420px;
+                height: 580px;
+                position: fixed;
+                top: 0px;
+                display: none;
+                margin-left: 500px;
+                border: solid 2px #999999;
+                box-shadow: 3px 5px 10px #CCCCCC;
+                font-family: 'Open Sans Condensed', sans-serif;
+            }
+            .video-popups {
+                margin-top: 100px;
+                width: 420px;
+                height: 315px;
+                position: fixed;
+                top: 0px;
+                display: none;
+                margin-left: 500px;
+                border: solid 2px #999999;
+                box-shadow: 3px 5px 10px #CCCCCC;
+            }
+            .video-caption {
+            	font-family: 'Open Sans Condensed', sans-serif;
+            	font-weight: 600;
+            	font-size: 18px;
+            	font-style: italic;
+            	text-align: left;
+            	letter-spacing: 1;
+            	margin: 15px 10px 0 25px;
+            }
+            	/*********** B A C K G R O U N D **********/
+            #background-title {
+            	font-family: 'Droid Serif', serif;
+            	font-size: 28px;
+            	text-align: center;
+            	margin: 20px 20px 20px 20px;
+            }
+            #background-text {
+            	font-size: 20px;
+            	padding: 10px 30px 0 30px;
+            	text-align: left;
+            	color: #666666;
+            }
+            #background-text2 {
+            	font-size: 20px;
+            	padding: 10px 30px 0 30px;
+            	text-align: left;
+            	color: #666666;
+            	display: none;
+            }
+            #background-text3 {
+            	font-size: 20px;
+            	padding: 10px 30px 0 30px;
+            	text-align: left;
+            	color: #666666;
+            	display: none;
+            }
+            	/*********** S C H O O L S **********/
+            .logo {
+            	position: relative;
+            	float: left;
+            	margin: 10px 30px 0 30px;
+            }
+            .school-name {
+            	font-family: 'Droid Serif', serif;
+            	font-size: 25px;
+            	font-weight: 500;
+				margin: 15px 10px 0 40px;
+				line-height: 35px;
+				text-align: left;
+				color: #333333;
+            }
+            .school-name a {
+            	color: #333333;
+            	text-decoration: none;
+            }
+            .school-name a:visited {
+            	color: #333333;
+            	text-decoration: none;
+            }
+            .school-name a:hover {
+            	color: #666666;
+            	text-decoration: underline;
+            }
+            .location {
+            	font-size: 22px;
+            	font-style: italic;
+            	text-align: left;
+            	color: #333333;
+            }
+            .quote {
+            	font-size: 26px;
+            	margin: 20px 35px 0 50px;
+            	color: #666666;
+            	text-align: left;
+            	line-height: 33px;
+            }
+            .quotee {
+            	font-size: 20px;
+            	font-style: italic;
+            	color: #666666;
+            	margin: 0px 50px 15px 0;
+            	text-align: right;
+            }
+            	/*********** D E M O G R A P H I C S **********/
+            .demographics {
+            	border-top: solid 1px #999999;
+            	margin: 15px;
+            	padding-top: 15px;
+            	font-family: 'Droid Serif', serif;
+            	font-size: 12px;
+            	font-weight: 600;
+            }
+            .demrow {
+            	position: relative;
+            	float: left;
+            	width: 100%;
+            }
+            .demrace {
+            	position: relative;
+            	float: left;
+            	width: 150px;
+            	font-size: 25px;
+            	font-weight: 400;
+            	color: #666666;
+            	text-align: left;
+            	margin-left: 50px;
+            }
+            .dembar {
+            	position: relative;
+            	float: left;
+            	height: 20px;
+            	background: #7FB1B3;
+            	margin: 8px 5px 0 5px;
+            }
+            .percent {
+            	position: relative;
+            	float: left;
+            	font-family: 'Gentium Book Basic', serif;
+            	color: #6fa79d;
+            	font-size: 30px;
+            	font-weight: bold;
+            	margin-right: 10px;
+            }
+            	/*********** N E W S - R E L E A S E S **********/
+            .redskins-name {
+            	font-family: 'Droid Serif', serif;
+            	font-size: 25px;
+            	font-weight: 700;
+				margin: 15px 8px 0 0;
+				line-height: 35px;
+				text-align: left;
+				color: #333333;
+            }
+            #links-to-pr {
+            	margin: -20px 0 0 0;
+            }
+            .redskins-pr {
+            	font-family: 'Open Sans Condensed', sans-serif;
+            	font-size: 23px;
+            	font-weight: 550;
+            	text-align: left;
+            	margin: 0 18px 0 22px;
+            }
+            .redskins-pr a {
+            	color: #882D2A;
+            	text-decoration: none;
+            }
+            .redskins-pr a:visited {
+            	color: #882D2A;
+            }
+            	/*********** 1 4 - S C H O O L S **********/
+            .fourteen-schools-list a {
+            	color: #333333;
+            	text-decoration: none;
+            }
+            .fourteen-schools-list a:visited {
+            	color: #333333;
+            	text-decoration: none;
+            }
+            .fourteen-schools-list a:hover {
+            	color: #666666;
+            	text-decoration: underline;
+            }
+            #fourteen-schools-title {
+            	font-family: 'Droid Serif', serif;
+            	font-size: 25px;
+            	font-weight: 700px;
+            	margin: 20px 20px 20px 20px;
+            }
+            .fourteen-schools-list {
+            	font-size: 17px;
+            	text-align: left;
+            	margin: 0 0 10px 15px;
+            }
+            .fourteen-schools-logo {
+            	position: relative;
+            	float: left;
+            	width: 20px;
+            	margin-right: 6px;
+            }        
+            .fourteen-schools-school {
+            	position: relative;
+            	float: left;
+            	margin: 0 20px 0 0;
+            }
+            	 	/*********** M I C H I G A N - S C H O O L S **********/
+            #michigan-schools {
+            	
+            }
+            #michigan-schools-title {
+            	font-family: 'Droid Serif', serif;
+            	font-size: 28px;
+            	font-weight: 700px;
+            	margin: 30px 20px 40px 20px;
+            }
+            .michigan-schools-list {
+            	font-size: 22px;
+            	text-align: left;
+            	margin: 0 3px 0px 15px;
+            }
+            .michigan-schools-logo {
+            	position: relative;
+            	float: left;
+            	width: 40px;
+            	margin: 0 15px 0 12px;
+            }        
+            .michigan-schools-school {
+            	position: relative;
+            	float: left;
+            	margin: 0 20px 0 0;
+            }
+            .michigan-schools-school a {
+            	color: #333333;
+            	text-decoration: none;
+            }
+            .michigan-schools-school a:visited {
+            	color: #333333;
+            	text-decoration: none;
+            }
+            .michigan-schools-school a:hover {
+            	color: #666666;
+            	text-decoration: underline;
+            }
+            #complaint-link {
+            	margin: 0 0 0 0;
+            	font-size: 35px;
+            }
+            #complaint-link a {
+            	color: #6fa79d;
+            	text-decoration: none;
+            }
+            #complaint-link a:visited {
+            	color: #6fa79d;
+            }
+            #complaint-link a:hover {
+            	text-decoration: underline;
+            }
+            /*================= F O O T E R ==================*/
+            footer {
+            	height: 100px;
+            	width: 100%;
+            	background: #999999;
+				background: -moz-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -webkit-gradient(linear, left top, right top, color-stop(0%,#999999), color-stop(100%,#ffffff));
+				background: -webkit-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -o-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				background: -ms-linear-gradient(top, #999999 0%, #E6E6E6 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#ffffff',GradientType=1 );
+				-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#ffffff',GradientType=1 );
+				background: linear-gradient(top, #999999 0%, #E6E6E6 100%);
+            }
+            #cnsmaryland {
+            	position: relative;
+            	float: left;
+            	margin: 20px 0 0 10px;
+            }
+            #merrill {
+            	position: relative;
+            	float: right;
+            	margin: 20px 10px 0 0;
+            }
